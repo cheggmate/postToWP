@@ -1,0 +1,14 @@
+
+<h1> Write your post here</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+<form action="{% url 'post:post' post.id %}" method="post">
+{% csrf_token %}
+	<h2>Title: </h2><br/>
+    <input type="text" name="post_title" id="post_title" value="{{post_title}}"/><br/><br/>
+    <h2>Content: </h2><br/>
+    <input type="text" name="content_text" id="post_content" value="{{post_content}}"/><br/><br/>
+
+{% endfor %}
+<input type="submit" value="Publish" />
+</form>

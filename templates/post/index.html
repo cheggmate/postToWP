@@ -1,0 +1,20 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'post/style.css' %}" />
+
+{% if post_set %}
+
+<h1> Published posts</h1>
+
+
+    <ul>
+    {% for post in post_set %}
+        <li>{{ post_title}}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No posts are available.</p>
+{% endif %}
+
+<br/>
+<button><a href="{% url 'post:post' %}">Create A New Post!</a></button>
